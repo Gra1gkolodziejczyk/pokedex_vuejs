@@ -16,7 +16,7 @@ export const useAuthStore = defineStore({
         const response = await fetch(`${baseUrl}/login`, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({ email, password })
         });
@@ -38,13 +38,13 @@ export const useAuthStore = defineStore({
         const response = await fetch(`${baseUrl}/register`, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({ username, email, password })
         });
 
         if (!response.ok) {
-          throw new Error('Registration failed');
+          throw new Error('Register failed');
         }
         const user = await response.json();
         this.user = user;

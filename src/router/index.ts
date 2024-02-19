@@ -6,7 +6,7 @@ import PokemonView from '@/views/PokemonView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.VITE_API_URL),
   routes: [
     {
       path: '/',
