@@ -1,14 +1,8 @@
+import type { User } from '@/types/user';
 import { defineStore } from 'pinia';
 import router from '@/router';
 
 const baseUrl: string = `${import.meta.env.VITE_API_URL}/users`;
-
-export type User = {
-  id: string;
-  email: string;
-  password: string;
-  jwt: string;
-}
 
 export const useAuthStore = defineStore({
   id: 'auth',
