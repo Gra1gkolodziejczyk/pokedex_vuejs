@@ -4,8 +4,10 @@
       <img src="../assets/logo.svg" alt="" width="33" height="33" />
     </div>
     <h1 class="font-bold text-2xl text-white">Pokedex Vuejs</h1>
+    <div class="ml-5 justify-center text-center">
+      <img src="../assets/logo.svg" alt="" width="33" height="33" />
+    </div>
   </div>
 </template>
 
-<script>
-</script>
+<script setup></script>

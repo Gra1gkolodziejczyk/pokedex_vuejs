@@ -2,10 +2,10 @@
   <div>
     <form class="" :onsubmit="validateAndEmit">
       <div class="">
-        <AppInput v-model="email" :req="true" placeholder="entrer votre email"></AppInput>
+        <AppInput v-model="email" :req="true" placeholder="Entrer votre email"></AppInput>
       </div>
       <div class="">
-        <AppInput v-model="password" :req="true" placeholder="entrer votre mot de passe"></AppInput>
+        <AppInput v-model="password" :req="true" placeholder="Entrer votre mot de passe"></AppInput>
       </div>
       <div class="">
         <AppButton text="Login" type="submit"></AppButton>

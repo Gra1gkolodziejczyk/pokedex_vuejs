@@ -1,11 +1,11 @@
 <template>
   <div>
     <input
-      class=""
-      type="text"
+      :type="type"
       :placeholder="placeholder"
       :required="req"
       v-model="text"
+      class="p-2 w-96 rounded"
     />
   </div>
 </template>
@@ -14,9 +14,10 @@
 interface Props {
   placeholder?: string
   req?: boolean
+  type: "password" | "email" | "text" | undefined
 }
 
-const {placeholder, req} = defineProps<Props>()
+const {placeholder, req, type} = defineProps<Props>()
 
 const text = defineModel<string>()
 </script>
