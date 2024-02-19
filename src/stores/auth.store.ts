@@ -30,20 +30,13 @@ export const useAuthStore = defineStore({
         if (!response.ok) {
           throw new Error('Login failed');
         }
-
         const user = await response.json();
-
-        // Update pinia state
         this.user = user;
-
-        // Store user details and jwt in local storage to keep the user logged in between page refreshes
         localStorage.setItem('user', JSON.stringify(user));
 
-        // Redirect to previous URL or default to home page
         router.push(this.returnUrl || '/');
       } catch (error) {
         console.error('Login error:', error);
-        // Handle login error here
       }
     },
     async register(username: string, email: string, password: string): Promise<User | any> {
@@ -59,20 +52,12 @@ export const useAuthStore = defineStore({
         if (!response.ok) {
           throw new Error('Registration failed');
         }
-
         const user = await response.json();
-
-        // Update pinia state
         this.user = user;
-
-        // Store user details and jwt in local storage to keep the user logged in between page refreshes
         localStorage.setItem('user', JSON.stringify(user));
-
-        // Redirect to home page after registration
-        router.push('/');
+        router.push('/login');
       } catch (error) {
         console.error('Registration error:', error);
-        // Handle registration error here
       }
     },
     logout(): void {
