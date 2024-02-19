@@ -13,7 +13,7 @@ export const useAuthStore = defineStore({
   actions: {
     async login(email: string, password: string): Promise<User | any> {
       try {
-        const response = await fetch(`${baseUrl}/login`, {
+        const response = await fetch(`${baseUrl}/auth/login`, {
           method: 'POST',
           headers: {
             "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export const useAuthStore = defineStore({
     },
     async register(username: string, email: string, password: string): Promise<User | any> {
       try {
-        const response = await fetch(`${baseUrl}/register`, {
+        const response = await fetch(`${baseUrl}/auth/register`, {
           method: 'POST',
           headers: {
             "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export const useAuthStore = defineStore({
         localStorage.setItem('user', JSON.stringify(user));
         router.push('/login');
       } catch (error) {
-        console.error('Registration error:', error);
+        console.log('Registration error:', error);
       }
     },
     logout(): void {
