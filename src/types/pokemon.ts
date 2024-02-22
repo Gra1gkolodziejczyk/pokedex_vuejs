@@ -1,5 +1,5 @@
 export type Pokemon = {
-  id: string;
+  _id: string;
   name: string;
   url: string;
   type: string;

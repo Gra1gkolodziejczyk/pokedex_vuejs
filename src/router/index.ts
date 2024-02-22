@@ -13,14 +13,12 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       meta: { requiresAuth: true },
-      children: [
-        {
-          name: 'pokemonId',
-          path: '/:pokemonId',
-          component: PokemonView,
-          meta: { requiresAuth: true },
-        },
-      ],
+    },
+    {
+      name: 'pokemonId',
+      path: '/:idPokemon',
+      component: PokemonView,
+      meta: { requiresAuth: true },
     },
     {
       name: 'login',

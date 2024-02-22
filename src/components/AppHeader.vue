@@ -3,7 +3,7 @@
     <div class="mr-5 text-center flex flex-row">
       <img class="mr-3" src="../assets/logo.svg" alt="" width="35" height="35" />
       <h1 class="font-bold text-2xl text-white">Pokedex Vuejs</h1>
-      <img class="ml-3" src="../assets/pokeball.png" alt="" width="55" height="35" />
+      <img class="ml-1" src="../assets/pokeball.png" alt="" width="55" height="35" />
     </div>
     <div>
       <button v-on:click="logout" class="text-white" >Se déconnecter</button>
