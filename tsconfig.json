@@ -1,5 +1,18 @@
 {
   "files": [],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "amd",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@/": [
+        "./src/"
+      ]
+    }
+  },
   "references": [
     {
       "path": "./tsconfig.node.json"

@@ -6,28 +6,42 @@ import PokemonView from '@/views/PokemonView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.VITE_API_URL),
+  history: createWebHistory(import.meta.env.VITE_BASE_URL),
   routes: [
     {
       path: '/',
       name: 'home',
       component: HomeView,
+      meta: { requiresAuth: true },
       children: [
         {
+          name: 'pokemonId',
           path: '/:pokemonId',
           component: PokemonView,
+          meta: { requiresAuth: true },
         },
       ],
     },
     {
+      name: 'login',
       path: '/login',
       component: LoginView,
     },
     {
+      name: 'register',
       path: '/register',
       component: RegisterView,
     },
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('access_token');
+  if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
+    next({ name: '/login' });
+  } else {
+    next();
+  }
+});
 
 export default router

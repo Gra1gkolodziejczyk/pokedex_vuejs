@@ -13,7 +13,7 @@
             <AppInput type="password" v-model="password" placeholder="Entrer votre mot de passe"></AppInput>
           </div>
           <div class="mt-5">
-            <AppButton type="submit" text="Se connecter"></AppButton>
+            <AppButton  type="submit" text="Se connecter"></AppButton>
           </div>
           <div class="mt-5 flex justify-center items-center">
             <p class="font-thin text-lg text-white">Vous avez déjà un compte ?</p>

@@ -2,16 +2,16 @@ import type { User } from '@/types/user';
 import { defineStore } from 'pinia';
 import router from '@/router';
 
-const baseUrl: string = `${import.meta.env.VITE_API_URL}/users`;
+const baseUrl: string = `${import.meta.env.VITE_BASE_URL}/users`;
 
 export const useAuthStore = defineStore({
   id: 'auth',
   state: () => ({
-    user: JSON.parse(localStorage.getItem('user') || 'null') as User | null,
+    user: JSON.parse(localStorage.getItem('access_token') || 'null') as User["access_token"] | null,
     returnUrl: null as string | null
   }),
   actions: {
-    async login(email: string, password: string): Promise<User | any> {
+    async login(email: string, password: string): Promise<User["access_token"] | any> {
       try {
         const response = await fetch(`${baseUrl}/auth/login`, {
           method: 'POST',
@@ -22,18 +22,18 @@ export const useAuthStore = defineStore({
         });
 
         if (!response.ok) {
-          throw new Error('Login failed');
+          throw new Error('La connection à raté');
         }
         const user = await response.json();
-        this.user = user;
-        localStorage.setItem('user', JSON.stringify(user));
+        this.user = user.access_token;
+        localStorage.setItem('access_token', JSON.stringify(user.access_token));
 
         router.push(this.returnUrl || '/');
       } catch (error) {
-        console.error('Login error:', error);
+        console.error('Erreur de connexion:', error);
       }
     },
-    async register(username: string, email: string, password: string): Promise<User | any> {
+    async register(username: string, email: string, password: string): Promise<User["access_token"] | any> {
       try {
         const response = await fetch(`${baseUrl}/auth/register`, {
           method: 'POST',
@@ -44,19 +44,19 @@ export const useAuthStore = defineStore({
         });
 
         if (!response.ok) {
-          throw new Error('Register failed');
+          throw new Error("L'inscription à raté");
         }
         const user = await response.json();
-        this.user = user;
-        localStorage.setItem('user', JSON.stringify(user));
+        this.user = user.access_token;
+        localStorage.setItem('access_token', JSON.stringify(user.access_token));
         router.push('/login');
       } catch (error) {
-        console.log('Registration error:', error);
+        console.log('Erreur inscription:', error);
       }
     },
     logout(): void {
       this.user = null;
-      localStorage.removeItem('user');
+      localStorage.removeItem('access_token');
       router.push('/login');
     }
   }
