@@ -16,7 +16,6 @@ const baseUrl: string = `${import.meta.env.VITE_BASE_URL}`;
 fetch(`${baseUrl}/pokemons`)
   .then((res) => res.json() as Promise<Pokemon[]>)
   .then((data) => {
-    console.log(data);
     pokemons.value = data;
   })
   .catch((e) => {
