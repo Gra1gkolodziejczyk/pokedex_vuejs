@@ -148,7 +148,7 @@ const getBackgroundColor = (type?: string) => {
       baseClass += ' bg-blue-300 hover:bg-blue-400';
       break;
     case 'normal | vol':
-      baseClass += ' bg-blue-400 hover:bg-blue-500';
+      baseClass += ' bg-blue-300 hover:bg-blue-400';
       break;
     case 'insect | vol':
       baseClass += ' bg-yellow-500 hover:bg-yellow-600';
