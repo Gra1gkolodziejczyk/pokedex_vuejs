@@ -8,8 +8,8 @@ const {text, type} = defineProps<Props>();
 
 <template>
   <div class="flex text-center justify-center">
-    <button 
-      class="text-white text-lg bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center" 
+    <button
+      class="text-white border border-bg-gray-500 text-lg bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center"
       :type="type"
     >
       {{ text }}
